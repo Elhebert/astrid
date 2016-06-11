@@ -1,5 +1,4 @@
 {
-
 	'use strict';
 
 	/**
@@ -9,6 +8,7 @@
 	let scrollY = () => {
 		let supportPageOffset = window.pageXOffset !== undefined;
 		let isCSS1Compat = ((document.compatMode || '')) === 'CSS1Compat';
+		
 		return supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
 	};
 
@@ -16,7 +16,7 @@
 	 * Make an element sticky
 	 * @param {element} element that need to be fixed to the top of the page.
 	 */
-	let makeSticky = (element) => {
+	let makeSticky = element => {
 		let rect = element.getBoundingClientRect();
 		let offset = parseInt(element.getAttribute('data-offset') || 0, 10);
 		let constraint = (element.getAttribute('data-constraint')
@@ -35,6 +35,7 @@
 		 */
 		let onScroll = () => {
 			let hasScrollClass = element.classList.contains('sticky');
+			
 			if (scrollY() > constraintBottom && element.style.position !== 'absolute') {
 				element.classList.remove('sticky');
 
@@ -92,8 +93,7 @@
 	 */
 	let elements = document.querySelectorAll('[data-sticky]');
 	for (let key in elements) {
-		if (elements.hasOwnProperty(key)) {
+		if (elements.hasOwnProperty(key))
 			makeSticky(elements[key]);
-		}
 	};
 }
