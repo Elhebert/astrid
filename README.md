@@ -1,8 +1,8 @@
 # Astrid
 
-This is Astrid a light **ES6 javascript** module to create sticky elements.
+This is Astrid, a light **ES6 javascript** module to create sticky elements.
 
-Why Astrid ? Astrid is the seestar from Nemo. And everone knows a seestar is sticky.
+Why Astrid ? Astrid is the sea star from Nemo. And everyone knows a sea star is sticky.
 ![astrid](https://media.giphy.com/media/ulSIu5DqlV51C/giphy.gif)
 
 Special thanks to [Grafikart](https://github.com/grafikart). This script is an ES6 adaption of his tutorial about [sticky elements](https://www.grafikart.fr/formations/debuter-javascript/menu-collant).
@@ -41,3 +41,6 @@ Usage:
 	<my-element data-sticky data-constraint=".constraint-element"></my-element>
 </my-parent-element>
 ```
+
+## License
+This script is published under the [MIT license](./LICENSE)
