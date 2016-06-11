@@ -16,7 +16,7 @@
 	 * Make an element sticky
 	 * @param {element} element that need to be fixed to the top of the page.
 	 */
-	let makeSticky = (element) => {
+	let makeSticky = element => {
 		let rect = element.getBoundingClientRect();
 		let offset = parseInt(element.getAttribute('data-offset') || 0, 10);
 		let constraint = (element.getAttribute('data-constraint')
@@ -64,7 +64,7 @@
 		};
 
 		/**
-		 * Triggered every time a resize event is detected on the pafe
+		 * Triggered every time a resize event is detected on the page
 		 */
 		let onResize = () => {
 			element.classList.remove('sticky');
