@@ -1,4 +1,5 @@
 {
+
 	'use strict';
 
 	/**
@@ -6,10 +7,14 @@
 	 * @see https://developer.mozilla.org/en/docs/Web/API/Window/scrollY
 	 */
 	let scrollY = () => {
+
+		'use strict';
+
 		let supportPageOffset = window.pageXOffset !== undefined;
 		let isCSS1Compat = ((document.compatMode || '')) === 'CSS1Compat';
-		
-		return supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+
+		return supportPageOffset ? window.pageYOffset :
+					isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
 	};
 
 	/**
@@ -17,13 +22,17 @@
 	 * @param {element} element that need to be fixed to the top of the page.
 	 */
 	let makeSticky = element => {
+
+		'use strict';
+
 		let rect = element.getBoundingClientRect();
 		let offset = parseInt(element.getAttribute('data-offset') || 0, 10);
-		let constraint = (element.getAttribute('data-constraint')
-							&& element.querySelector(element.getAttribute('data-constraint')))
-							|| document.body;
+		let constraint = (element.getAttribute('data-constraint') &&
+							element.querySelector(element.getAttribute('data-constraint'))) ||
+							document.body;
 		let constraintRect = constraint.getBoundingClientRect();
-		let constraintBottom = constraintRect.top + scrollY() + constraintRect.height - offset - rect.height;
+		let constraintBottom = constraintRect.top + scrollY() +
+								constraintRect.height - offset - rect.height;
 		let top = rect.top + scrollY();
 		let fake = document.createElement('div');
 
@@ -35,7 +44,7 @@
 		 */
 		let onScroll = () => {
 			let hasScrollClass = element.classList.contains('sticky');
-			
+
 			if (scrollY() > constraintBottom && element.style.position !== 'absolute') {
 				element.classList.remove('sticky');
 
@@ -43,9 +52,9 @@
 				element.style.top = 'auto';
 				element.style. bottom = '0';
 			} else if (
-				scrollY() > (top - offset)
-				&& scrollY() < constraintBottom
-				&& !hasScrollClass && element.style.position !== 'fixed'
+				scrollY() > (top - offset) &&
+				scrollY() < constraintBottom &&
+				!hasScrollClass && element.style.position !== 'fixed'
 			) {
 				element.classList.add('sticky');
 
@@ -55,7 +64,10 @@
 				element.style.width = rect.width + 'px';
 
 				element.parentNode.insertBefore(fake, element);
-			} else if (scrollY() < (top - offset) && hasScrollClass && element.style.position !== 'relative') {
+			} else if (
+				scrollY() < (top - offset) &&
+				hasScrollClass && element.style.position !== 'relative'
+			) {
 				element.classList.remove('sticky');
 
 				element.style.position = 'relative';
@@ -95,5 +107,5 @@
 	for (let key in elements) {
 		if (elements.hasOwnProperty(key))
 			makeSticky(elements[key]);
-	};
+	}
 }
