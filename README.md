@@ -1,17 +1,18 @@
-# Astrid
+# Peach
 
-This is Astrid, a light **ES6 javascript** module to create sticky elements.
+This is Peach, a light **ES6 javascript** module to create sticky elements.
 
-Why Astrid ? Astrid is the sea star from Nemo. And everyone knows a sea star is sticky.
-![astrid](https://media.giphy.com/media/ulSIu5DqlV51C/giphy.gif)
+> Morning. It's morning, everyone! Today's the day! The sun is shining, the tank is clean, and we are gonna get out of... 
+
+![peach](https://media.giphy.com/media/ulSIu5DqlV51C/giphy.gif)
 
 Special thanks to [Grafikart](https://github.com/grafikart). This script is an ES6 adaption of his tutorial about [sticky elements](https://www.grafikart.fr/formations/debuter-javascript/menu-collant).
 
 ## Usage
 
-Add the **astrid.js** file to your index.(html|php).
+Add the **peach.js** file to your index.(html|php).
 ```
-<script src="/path/to/astrid.js"></script>
+<script src="/path/to/peach.js"></script>
 ```
 
 Add `data-sticky` on the html element that need to be sticky. When the element is in sticky mode, it'll have the css class `sticky`.
